@@ -1,0 +1,18 @@
+# Ambiente e segredos
+.env
+.venv/
+venv/
+
+# Banco SQLite local
+*.db
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Pytest
+.pytest_cache/
+
+# Arquivos de IDE
+.vscode/
+.idea/

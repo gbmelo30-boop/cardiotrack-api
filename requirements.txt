@@ -1,0 +1,23 @@
+# Núcleo da API
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+
+# Banco de dados (ORM) - mantém o código independente do SGBD
+SQLAlchemy==2.0.30
+
+# Driver do PostgreSQL (usado em desenvolvimento/produção).
+# O SQLite, usado como plano B, já vem embutido no Python.
+psycopg2-binary==2.9.9
+
+# Validação e modelagem dos dados de entrada/saída
+pydantic==2.7.1
+pydantic-settings==2.3.0
+email-validator==2.1.1
+
+# Segurança: hash de senha (bcrypt) e geração/leitura de tokens JWT
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+
+# Testes
+pytest==8.2.2
+httpx==0.27.0
