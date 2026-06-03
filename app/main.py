@@ -16,14 +16,14 @@ from app.modules.auth.router import roteador as roteador_auth
 from app.modules.medicoes.router import roteador as roteador_medicoes
 
 # Cria as tabelas no banco caso ainda não existam. Em um projeto maior isso
-# ficaria a cargo de uma ferramenta de migração (ex.: Alembic), mas para o
-# escopo do trabalho criar direto pelo ORM é suficiente e transparente.
+# ficaria a cargo de uma ferramenta de migração (ex.: Alembic), mas neste
+# escopo criar direto pelo ORM é suficiente e transparente.
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="CardioTrack API",
-    description="Sistema de Acompanhamento de Saúde Cardíaca - Engenharia de Software II",
-    version="0.1.0",
+    description="API de acompanhamento de saúde cardíaca",
+    version="1.0.0",
 )
 
 # Cada módulo expõe seu próprio roteador; aqui eles são plugados na aplicação.

@@ -1,6 +1,6 @@
 # Arquitetura e Modularização — CardioTrack API
 
-Documento exigido na entrega: explica como o projeto está organizado e por quê.
+Este documento explica como o projeto está organizado e o porquê de cada decisão.
 
 ## 1. Visão geral
 
@@ -10,9 +10,8 @@ juntos, todos os "models" juntos), agrupamos por assunto: tudo o que diz respeit
 a "usuários" mora em um módulo, "autenticação" em outro, "medições" em outro.
 Cada módulo é uma fatia vertical completa e quase independente.
 
-A vantagem prática: para mexer em uma funcionalidade, você abre uma única pasta;
-e cada integrante do grupo pode ficar responsável por um módulo, o que casa com a
-arguição individual da avaliação.
+A vantagem prática: para mexer em uma funcionalidade, você abre uma única pasta,
+sem precisar caçar arquivos espalhados pelo projeto.
 
 ## 2. As camadas
 

@@ -1,12 +1,12 @@
 # CardioTrack API
 
-Back-end do **Sistema de Acompanhamento de Saúde Cardíaca**, desenvolvido para a
-disciplina de Engenharia de Software II. A API permite que um usuário crie conta,
-faça login e registre/acompanhe indicadores cardíacos (pressão, frequência,
-oxigenação, peso e sintomas), além de gerar relatórios com médias e histórico.
+API REST para acompanhamento de saúde cardíaca. Permite que uma pessoa crie sua
+conta, faça login e registre indicadores do coração — pressão arterial,
+frequência cardíaca, oxigenação no sangue, peso e sintomas — gerando relatórios
+com médias e histórico para acompanhar a evolução ao longo do tempo.
 
-> Status: **esqueleto** do projeto. A estrutura e os contratos estão prontos; a
-> lógica de cada camada é preenchida na sequência.
+O projeto foi construído com foco em **organização, modularização e testes**:
+uma arquitetura em camadas, separada por domínio, fácil de entender e de manter.
 
 ## Tecnologias
 
@@ -16,7 +16,15 @@ oxigenação, peso e sintomas), além de gerar relatórios com médias e histór
 - **JWT** para autenticação e **bcrypt** para o hash das senhas
 - **pytest** para testes unitários e de integração
 
-## Como executar (após a implementação)
+## Funcionalidades
+
+- Cadastro de conta com validação de e-mail único e confirmação de senha
+- Login com emissão de token JWT
+- Registro de medições cardíacas (pressão, frequência, oxigenação, peso, sintomas)
+- Histórico das medições do usuário
+- Relatório com médias dos principais indicadores
+
+## Como executar
 
 ```bash
 # 1. Criar e ativar um ambiente virtual
@@ -34,6 +42,15 @@ uvicorn app.main:app --reload
 ```
 
 Documentação interativa (Swagger UI): http://localhost:8000/docs
+
+## Testes
+
+```bash
+pytest
+```
+
+Os testes estão divididos entre **unitários** (regras de negócio isoladas) e de
+**integração** (fluxo completo pela API).
 
 ## Estrutura do projeto
 
@@ -53,7 +70,3 @@ tests/
 
 A explicação detalhada da arquitetura e da modularização está em
 [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md).
-
-## Integrantes do grupo
-
-- (preencher)
