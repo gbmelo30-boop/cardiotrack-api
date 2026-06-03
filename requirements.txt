@@ -2,16 +2,15 @@
 fastapi==0.111.0
 uvicorn[standard]==0.30.1
 
-# Banco de dados (ORM) - mantém o código independente do SGBD
+# Banco de dados (ORM) - mantém o código independente do SGBD.
+# O SQLite (padrão para rodar localmente) já vem embutido no Python, então não
+# precisa de driver extra. Para usar PostgreSQL, instale também o psycopg2-binary:
+#     pip install psycopg2-binary
 SQLAlchemy==2.0.30
 
-# Driver do PostgreSQL (usado em desenvolvimento/produção).
-# O SQLite, usado como plano B, já vem embutido no Python.
-psycopg2-binary==2.9.9
-
 # Validação e modelagem dos dados de entrada/saída
-pydantic==2.7.1
-pydantic-settings==2.3.0
+pydantic==2.9.2
+pydantic-settings==2.5.2
 email-validator==2.1.1
 
 # Segurança: hash de senha (bcrypt) e geração/leitura de tokens JWT
