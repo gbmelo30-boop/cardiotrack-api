@@ -8,6 +8,12 @@ com médias e histórico para acompanhar a evolução ao longo do tempo.
 O projeto foi construído com foco em **organização, modularização e testes**:
 uma arquitetura em camadas, separada por domínio, fácil de entender e de manter.
 
+O repositório reúne as duas partes do sistema:
+
+- **API (back-end)** — na raiz do projeto (`app/`, `tests/`, `docs/`).
+- **App (front-end)** — em [`frontend/`](frontend/), aplicativo mobile em Ionic +
+  Angular que consome a API.
+
 ## Tecnologias
 
 - **Python** com **FastAPI** (API e documentação Swagger automática)

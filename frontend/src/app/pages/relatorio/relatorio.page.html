@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Relatório</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="relatorio && relatorio.total_registros === 0" class="vazio">
+    <ion-icon name="bar-chart" color="medium"></ion-icon>
+    <p>Registre algumas medições para ver seu relatório.</p>
+  </div>
+
+  <div *ngIf="relatorio && relatorio.total_registros > 0">
+    <!-- Cartões com as médias calculadas pelo back-end. -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Freq. cardíaca</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <span class="valor">{{ relatorio.media_frequencia_cardiaca ?? '-' }}</span> bpm
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Pressão média</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <span class="valor">
+                {{ relatorio.media_pressao_sistolica ?? '-' }}/{{ relatorio.media_pressao_diastolica ?? '-' }}
+              </span> mmHg
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Oxigenação</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <span class="valor">{{ relatorio.media_oxigenacao ?? '-' }}</span> %
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Registros</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <span class="valor">{{ relatorio.total_registros }}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Evolução</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #grafico></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

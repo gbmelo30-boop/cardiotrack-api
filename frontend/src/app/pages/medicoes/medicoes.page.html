@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Acompanhamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="registrar()">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Nova medição</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-input label="Pressão sistólica (mmHg)" labelPlacement="stacked"
+          type="number" name="sistolica"
+          [(ngModel)]="nova.pressao_sistolica"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Pressão diastólica (mmHg)" labelPlacement="stacked"
+          type="number" name="diastolica"
+          [(ngModel)]="nova.pressao_diastolica"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Frequência cardíaca (bpm)" labelPlacement="stacked"
+          type="number" name="frequencia"
+          [(ngModel)]="nova.frequencia_cardiaca"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Oxigenação no sangue (%)" labelPlacement="stacked"
+          type="number" name="oxigenacao"
+          [(ngModel)]="nova.oxigenacao_sangue"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Peso corporal (kg)" labelPlacement="stacked"
+          type="number" name="peso"
+          [(ngModel)]="nova.peso_corporal"></ion-input>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>Sintomas</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-toggle name="faltaAr" [(ngModel)]="nova.falta_de_ar">Falta de ar</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle name="dorPeito" [(ngModel)]="nova.dor_no_peito">Dor no peito</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle name="tontura" [(ngModel)]="nova.tontura">Tontura</ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" color="danger" class="ion-margin-top">
+      Registrar medição
+    </ion-button>
+  </form>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Histórico</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngIf="!carregando && historico.length === 0">
+      <ion-label class="ion-text-wrap" color="medium">
+        Nenhuma medição registrada ainda.
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let m of historico">
+      <ion-label class="ion-text-wrap">
+        <h3>{{ m.registrado_em | date: 'dd/MM/yyyy HH:mm' }}</h3>
+        <p *ngIf="m.pressao_sistolica != null">
+          Pressão: {{ m.pressao_sistolica }}/{{ m.pressao_diastolica }} mmHg
+        </p>
+        <p *ngIf="m.frequencia_cardiaca != null">
+          Frequência: {{ m.frequencia_cardiaca }} bpm
+        </p>
+        <p *ngIf="m.oxigenacao_sangue != null">
+          Oxigenação: {{ m.oxigenacao_sangue }}%
+        </p>
+        <p *ngIf="m.peso_corporal != null">Peso: {{ m.peso_corporal }} kg</p>
+        <p *ngIf="m.falta_de_ar || m.dor_no_peito || m.tontura" color="danger">
+          Sintomas:
+          <span *ngIf="m.falta_de_ar">falta de ar </span>
+          <span *ngIf="m.dor_no_peito">dor no peito </span>
+          <span *ngIf="m.tontura">tontura</span>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

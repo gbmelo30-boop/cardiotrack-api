@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>CardioTrack</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cabecalho">
+    <ion-icon name="heart" color="danger"></ion-icon>
+    <h1>Bem-vindo de volta</h1>
+    <p>Acompanhe sua saúde cardíaca</p>
+  </div>
+
+  <!-- (login) dispara entrar() ao enviar o formulário -->
+  <form (ngSubmit)="entrar()">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="E-mail"
+          labelPlacement="floating"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Senha"
+          labelPlacement="floating"
+          type="password"
+          name="senha"
+          [(ngModel)]="senha"
+          required
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" color="danger" class="ion-margin-top">
+      Entrar
+    </ion-button>
+  </form>
+
+  <ion-button expand="block" fill="clear" routerLink="/cadastro">
+    Não tem conta? Criar conta
+  </ion-button>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar Conta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="criarConta()">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nome" labelPlacement="floating" name="nome"
+          [(ngModel)]="dados.nome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Sobrenome" labelPlacement="floating" name="sobrenome"
+          [(ngModel)]="dados.sobrenome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="E-mail" labelPlacement="floating" type="email"
+          name="email" [(ngModel)]="dados.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Telefone" labelPlacement="floating" type="tel"
+          name="telefone" [(ngModel)]="dados.telefone" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Data de nascimento" labelPlacement="stacked" type="date"
+          name="nascimento" [(ngModel)]="dados.data_nascimento" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Sexo" labelPlacement="floating" name="sexo"
+          [(ngModel)]="dados.sexo" interface="popover">
+          <ion-select-option value="Feminino">Feminino</ion-select-option>
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Outro">Outro</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input label="País de residência" labelPlacement="floating"
+          name="pais" [(ngModel)]="dados.pais_residencia" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Senha" labelPlacement="floating" type="password"
+          name="senha" [(ngModel)]="dados.senha" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Confirmar senha" labelPlacement="floating" type="password"
+          name="confirmar" [(ngModel)]="dados.confirmar_senha" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" color="danger" class="ion-margin-top">
+      Criar conta
+    </ion-button>
+  </form>
+</ion-content>
