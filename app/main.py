@@ -9,6 +9,7 @@ Com a API no ar, a documentação Swagger fica em:  http://localhost:8000/docs
 """
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.database import Base, engine
 from app.modules.usuarios.router import roteador as roteador_usuarios
@@ -24,6 +25,19 @@ app = FastAPI(
     title="CardioTrack API",
     description="API de acompanhamento de saúde cardíaca",
     version="1.0.0",
+)
+
+# Libera o acesso a partir do aplicativo (front-end). Como o app roda em um
+# endereço diferente do back-end (e no celular vem de outro IP), o navegador
+# exige essa permissão de CORS para deixar as requisições passarem. Usamos a
+# autenticação por token no cabeçalho, não por cookie, então não precisamos de
+# "allow_credentials".
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Cada módulo expõe seu próprio roteador; aqui eles são plugados na aplicação.
